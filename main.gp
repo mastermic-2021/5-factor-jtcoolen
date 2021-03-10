@@ -1,7 +1,5 @@
 encode(m)=fromdigits(Vec(Vecsmall(m)),128);
-decode(m)={
-	Strchr(digits(m, 128));
-};
+decode(m)=Strchr(digits(m, 128));
 
 \\ Le symbole de Kronecker ainsi que la parité du message d'origine permmettent de discriminer les quatre racines possibles
 decipher(m, p, q) = {
@@ -21,8 +19,8 @@ decipher(m, p, q) = {
 };
 
 PollardRho(n) = {
-	i = 2; a = 2;
-	while(1, a=(a^i) % n; d=gcd(a-1, n); if(d > 1, break); i+=1);
+	i = 2; a = Mod(2,n);
+	while(1, a=a^i; d=gcd(lift(a-1), n); if(d > 1, break); i+=1);
 	d;
 };
 
