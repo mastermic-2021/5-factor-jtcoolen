@@ -1,7 +1,6 @@
 encode(m)=fromdigits(Vec(Vecsmall(m)),128);
 decode(m)={
-	dg=digits(m, 128);
-	Strchr(vector(#dg, i, if(dg[i] == 0, 32, dg[i])));
+	Strchr(digits(m, 128));
 };
 
 \\ Le symbole de Kronecker ainsi que la parité du message d'origine permmettent de discriminer les quatre racines possibles
