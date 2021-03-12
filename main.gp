@@ -18,7 +18,7 @@ decipher(m, p, q) = {
 	print(decode(lift(r4)));
 };
 
-PollardRho(n) = {
+Pollard(n) = {
 	i = 2; a = Mod(2,n);
 	while(1, a=a^i; d=gcd(lift(a-1), n); if(d > 1, break); i+=1);
 	d;
@@ -26,9 +26,9 @@ PollardRho(n) = {
 
 [n,c] = readvec("input.txt");
 
-\\ on détermine un facteur de n via la méthode Rho de Pollard
+\\ on détermine un facteur de n via la méthode p-1 de Pollard
 \\ (p-1 and q-1 sont friables avec comme plus grand facteur premier 1723...)
-p=PollardRho(n);
+p=Pollard(n);
 
 q=n/p;
 decipher(c, p, q);
